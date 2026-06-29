@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registru Fiscal PFA - Management Activitate</title>
-    <!-- Tailwind CSS v4 pentru structură fluidă și performantă -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,24 +22,20 @@
 </head>
 <body class="text-[#D1D5DB] antialiased">
 
-    <!-- CONTAINER CENTRAL (REZOLUȚIE EXECUTIVĂ FLUIDĂ) -->
     <div class="max-w-md mx-auto min-h-screen bg-[#0A0E1A] flex flex-col relative border-x border-[#1E293B]">
         
-        <!-- HEADER CORPORATIV -->
         <header class="bg-[#111827] px-4 py-4 sticky top-0 z-50 flex items-center justify-between border-b border-[#1E293B]">
             <div>
-                <h1 class="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-wider">Registru Jurnal Financiar</h1>
+                <h1 class="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-wider">Registru Activitate PFA</h1>
                 <p class="text-sm font-semibold text-white tracking-tight">Achim Alexandru Robert PFA</p>
             </div>
             
-            <!-- Badge Status Fiscal -->
             <div class="bg-[#1F2937] px-2.5 py-1 border border-[#374151] rounded-sm flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 bg-[#10B981] rounded-full"></span>
-                <span class="text-[10px] font-medium tracking-wide text-white uppercase">Normă 10%</span>
+                <span class="text-[10px] font-medium tracking-wide text-white uppercase">Activ</span>
             </div>
         </header>
 
-        <!-- NAVIGARE TIP TAB-URI BUSINESS -->
         <div class="bg-[#111827] border-b border-[#1E293B] flex">
             <button onclick="schimbaPagina('saptamana')" id="btn-saptamana" class="w-1/2 py-3 text-center text-xs font-medium text-[#9CA3AF] border-b-2 border-transparent transition-all cursor-pointer active-tab flex items-center justify-center gap-2">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"></path></svg>
@@ -52,23 +47,19 @@
             </button>
         </div>
 
-        <!-- FILTRU CONȚINUT PRINCIPAL -->
         <main class="p-4 space-y-4 flex-1 pb-16">
 
-            <!-- ================= PAGINA 1: SĂPTĂMÂNĂ ================= -->
             <div id="pagina-saptamana" class="space-y-4">
                 
-                <!-- PANOU PRINCIPAL METRICI -->
                 <div class="bg-[#131B2E] p-5 border border-[#1E293B] rounded-md shadow-sm">
-                    <span class="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-wider block mb-1">Venit Net Estimat (Disponibil)</span>
+                    <span class="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-wider block mb-1">Profit Net Real (Disponibil)</span>
                     <div id="calc-buzunar" class="text-3xl font-bold text-white font-mono tracking-tight flex items-baseline gap-1">
                         0.00 <span class="text-xs font-normal text-[#9CA3AF]">RON</span>
                     </div>
                     
-                    <!-- TARGET PROGRESS BAR -->
                     <div class="mt-4 space-y-1.5">
                         <div class="flex justify-between items-center text-[10px] font-medium text-[#9CA3AF]">
-                            <span>Progres obiectiv financiar săptămânal:</span>
+                            <span>Progres obiectiv săptămânal:</span>
                             <span id="text-progres-target" class="font-semibold text-white font-mono">0%</span>
                         </div>
                         <div class="w-full bg-[#1F2937] h-1.5 rounded-none p-0.5">
@@ -76,72 +67,64 @@
                         </div>
                     </div>
 
-                    <!-- REZUMAT FINANCIAR SUBTIAT -->
                     <div class="grid grid-cols-2 gap-4 mt-5 pt-4 border-t border-[#1E293B] text-xs">
                         <div>
-                            <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Total Brut Încasat</span>
+                            <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Total Venituri</span>
                             <span id="calc-venit" class="font-semibold text-white font-mono text-sm">0.00 lei</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Provizion Impozit (10%)</span>
-                            <span id="calc-taxe" class="font-semibold text-[#F59E0B] font-mono text-sm">0.00 lei</span>
+                            <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Total Cheltuieli</span>
+                            <span id="calc-taxe" class="font-semibold text-[#EF4444] font-mono text-sm">0.00 lei</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- METRICĂ TIMP OPERAȚIONAL -->
                 <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex items-center justify-between text-xs">
                     <div class="flex items-center gap-2.5">
                         <svg class="w-4 h-4 text-[#60A5FA]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-[#9CA3AF] font-medium">Timp total alocat în trafic:</span>
+                        <span class="text-[#9CA3AF] font-medium">Timp total de lucru:</span>
                     </div>
                     <span id="calc-timp-saptamana" class="font-semibold font-mono text-[#60A5FA]">0h 0m</span>
                 </div>
 
-                <!-- DEDUCTION METRICS CRISP GRID -->
                 <div class="grid grid-cols-2 gap-3 text-xs">
                     <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex justify-between items-center">
-                        <span class="text-[#9CA3AF]">Comision Aplicație</span>
+                        <span class="text-[#9CA3AF]">Comision Bolt</span>
                         <span id="calc-comision" class="font-semibold font-mono text-[#EF4444]">-0.00 lei</span>
                     </div>
                     
                     <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex justify-between items-center">
-                        <span class="text-[#9CA3AF]">Cheltuieli Logistice</span>
+                        <span class="text-[#9CA3AF]">Costuri Deductibile</span>
                         <span id="calc-decontabile" class="font-semibold font-mono text-[#9CA3AF]">-0.00 lei</span>
                     </div>
                 </div>
 
-                <!-- FORMULAR FORMAL DE INTRODUCERE DATE -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4 space-y-4">
-                    <h3 class="text-xs font-bold text-white uppercase tracking-wider border-b border-[#1E293B] pb-2">Introducere Date Activitate</h3>
+                    <h3 class="text-xs font-bold text-white uppercase tracking-wider border-b border-[#1E293B] pb-2">Introducere Date zi/cursă</h3>
                     
-                    <!-- Selectie Dată Pro -->
                     <div>
-                        <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Data calendaristică</label>
+                        <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Data</label>
                         <input type="date" id="form-data" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm py-2 px-3 text-xs font-mono text-white focus:outline-none focus:border-[#2563EB]">
                     </div>
 
-                    <!-- Grid Intrări Sume -->
                     <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Venit Card/App (lei)</label>
+                            <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Venit în aplicație (lei)</label>
                             <input type="number" id="form-v-app" placeholder="0.00" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#2563EB] font-mono text-white">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Venit Cash (lei)</label>
+                            <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Venit în numerar (lei)</label>
                             <input type="number" id="form-v-cash" placeholder="0.00" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#2563EB] font-mono text-white">
                         </div>
                     </div>
 
-                    <!-- Retineri Regie / Comision -->
                     <div>
-                        <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Comision reținut din raport (lei)</label>
+                        <label class="block text-[10px] font-medium text-[#9CA3AF] mb-1 uppercase tracking-wide">Comision Bolt (lei)</label>
                         <input type="number" id="form-comision" placeholder="0.00" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#EF4444] font-mono text-[#EF4444]">
                     </div>
 
-                    <!-- Câmpuri Timp de Lucru Obligatorii -->
                     <div class="space-y-1">
-                        <span class="text-[10px] font-medium text-[#9CA3AF] uppercase tracking-wide block">Timp de lucru pontat</span>
+                        <span class="text-[10px] font-medium text-[#9CA3AF] uppercase tracking-wide block">Timp de lucru</span>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <input type="number" id="form-ore" placeholder="Ore" min="0" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#60A5FA] font-mono text-white text-center">
@@ -152,41 +135,35 @@
                         </div>
                     </div>
 
-                    <!-- Costuri decontabile defalcate corporativ -->
                     <div class="space-y-2 pt-1">
-                        <span class="text-[10px] font-medium text-[#9CA3AF] uppercase tracking-wide block">Costuri logistice deductibile (RON)</span>
+                        <span class="text-[10px] font-medium text-[#9CA3AF] uppercase tracking-wide block">Costuri deductibile (lei)</span>
                         <div class="grid grid-cols-3 gap-2">
                             <input type="number" id="form-combustibil" placeholder="Combustibil" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#2563EB] font-mono text-white text-center">
-                            <input type="number" id="form-chirie" placeholder="Management" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#2563EB] font-mono text-white text-center">
+                            <input type="number" id="form-chirie" placeholder="Chirie" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#2563EB] font-mono text-white text-center">
                             <input type="number" id="form-contabil" placeholder="Contabilitate" class="w-full bg-[#0A0E1A] border border-[#1E293B] rounded-sm p-2 text-xs focus:outline-none focus:border-[#2563EB] font-mono text-white text-center">
                         </div>
                     </div>
 
-                    <!-- Buton Submit Sobru -->
                     <button onclick="salveazaDate()" class="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold py-2.5 rounded-sm text-xs uppercase tracking-wider transition-colors cursor-pointer text-center active:scale-[0.99]">
-                        Înregistrează activitatea zilnică
+                        Salvează Datele
                     </button>
                 </div>
 
-                <!-- JURNAL CRONOLOGIC SAPTAMANAL -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4 space-y-2">
                     <div class="flex justify-between items-center border-b border-[#1E293B] pb-2 mb-2">
                         <h3 class="font-bold text-[#9CA3AF] text-[10px] uppercase tracking-wider">Înregistrări Săptămâna Curentă</h3>
                         <span class="text-[10px] text-[#6B7280]">Luni - Duminică</span>
                     </div>
                     <div id="lista-intrari-saptamana" class="divide-y divide-[#1E293B]/60 text-xs">
-                        <!-- Generat dinamic -->
-                    </div>
+                        </div>
                 </div>
             </div>
 
-            <!-- ================= PAGINA 2: REGISTRU CONSOLIDAT LUNAR ================= -->
             <div id="pagina-lunar" class="hidden space-y-4">
                 
-                <!-- SITUATIE CONSOLIDATA LUNARA -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4">
                     <div class="border-b border-[#1E293B] pb-2 mb-3">
-                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Fișă Fiscală și Timp Total de Lucru</h3>
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Fișă Istoric și Timp Total</h3>
                     </div>
                     
                     <div class="overflow-x-auto">
@@ -195,24 +172,20 @@
                                 <tr class="text-[#9CA3AF] border-b border-[#1E293B] font-bold uppercase tracking-wider text-[9px]">
                                     <th class="pb-2">Luna / An</th>
                                     <th class="pb-2 text-center text-[#60A5FA]">Timp Total</th>
-                                    <th class="pb-2 text-right">Brut</th>
+                                    <th class="pb-2 text-right">Venituri</th>
                                     <th class="pb-2 text-right">Cheltuieli</th>
-                                    <th class="pb-2 text-right text-[#F59E0B]">Impozit</th>
-                                    <th class="pb-2 text-right text-[#10B981]">Net Curat</th>
+                                    <th class="pb-2 text-right text-[#10B981]">Profit Net</th>
                                 </tr>
                             </thead>
                             <tbody id="corp-tabel-lunar" class="divide-y divide-[#1E293B]/40 text-[#D1D5DB] font-mono">
-                                <!-- Generat dinamic -->
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- MODUL ARHIVARE ȘI MANAGEMENT DATE -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4 space-y-3">
                     <div>
-                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Export / Import Date Raportare</h3>
-                        <p class="text-[11px] text-[#9CA3AF] mt-0.5">Sistem de stocare independent pentru siguranța datelor fiscale.</p>
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Export / Import Date</h3>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-3">
@@ -229,7 +202,6 @@
                     </div>
                 </div>
 
-                <!-- CRITICAL RESET SYSTEM -->
                 <div class="pt-6">
                     <button onclick="stergeTotIstoricul()" class="text-center block w-full text-[9px] text-[#6B7280] hover:text-[#EF4444] font-medium uppercase tracking-widest cursor-pointer transition-colors duration-200">
                         Șterge baza de date locală (Reset Complet)
@@ -241,7 +213,6 @@
         </main>
     </div>
 
-    <!-- LOGICA FINANCIARĂ EXECUTIVĂ CONSOLIDATĂ -->
     <script>
         document.getElementById('form-data').valueAsDate = new Date();
         const TARGET_SAPTAMANAL = 1000;
@@ -265,11 +236,10 @@
             }
         }
 
-        // ================= FUNCTII SALVARE EXPORT / IMPORT =================
         function exportaDate() {
             let dateBaza = localStorage.getItem('date_pfa_achim_v2') || '[]';
             if(dateBaza === '[]') {
-                alert("Nu există înregistrări pentru export în baza de date locală.");
+                alert("Nu există înregistrări pentru export.");
                 return;
             }
             let blob = new Blob([dateBaza], { type: 'application/json' });
@@ -284,6 +254,31 @@
             URL.revokeObjectURL(urlUrl);
         }
 
+        function practicaMigrareDacaExista() {
+            // Migrează datele vechi dacă utilizatorul avea salvat în pfa_entries formatul simplu
+            let dateVechi = localStorage.getItem('pfa_entries');
+            let dateNoi = localStorage.getItem('date_pfa_achim_v2');
+            if(dateVechi && !dateNoi) {
+                try {
+                    let parsedVechi = JSON.parse(dateVechi);
+                    let formatNou = parsedVechi.map(e => ({
+                        id: e.id,
+                        data: e.data,
+                        vApp: e.venitApp || 0,
+                        vCash: e.venitCash || 0,
+                        comision: e.comisionBolt || 0,
+                        combustibil: e.tipCost === 'combustibil' ? e.valoareCost : 0,
+                        chirie: e.tipCost === 'chirie' ? e.valoareCost : 0,
+                        contabil: e.tipCost === 'contabilitate' ? e.valoareCost : 0,
+                        ore: 0,
+                        minute: 0
+                    }));
+                    localStorage.setItem('date_pfa_achim_v2', JSON.stringify(formatNou));
+                } catch(err){}
+            }
+        }
+        practicaMigrareDacaExista();
+
         function importaDate(event) {
             let fisier = event.target.files[0];
             if (!fisier) return;
@@ -292,23 +287,22 @@
                 try {
                     let dateJson = JSON.parse(e.target.result);
                     if (Array.isArray(dateJson)) {
-                        if (confirm("Confirmați rescrierea bazei de date? Toate datele curente vor fi înlocuite.")) {
+                        if (confirm("Confirmați rescrierea bazei de date?")) {
                             localStorage.setItem('date_pfa_achim_v2', JSON.stringify(dateJson));
                             document.getElementById('input-import-file').value = '';
                             ruleazaCalculeSaptamana();
                             genereazaIstoricLunar();
-                            alert("Importul a fost finalizat cu succes.");
+                            alert("Import realizat.");
                         }
                     } else {
-                        alert("Formatul fișierului JSON nu este compatibil.");
+                        alert("Format JSON incompatibil.");
                     }
                 } catch (eroare) {
-                    alert("Eroare la parsarea structurii JSON.");
+                    alert("Eroare la parsare.");
                 }
             };
             cititor.readAsText(fisier);
         }
-        // ===================================================================
 
         function optineMarginileSaptamaniiCurente() {
             let azi = new Date();
@@ -324,7 +318,7 @@
 
         function salveazaDate() {
             let dataIntrodusa = document.getElementById('form-data').value;
-            if(!dataIntrodusa) { alert("Selectați o dată calendaristică validă."); return; }
+            if(!dataIntrodusa) { alert("Selectați o dată."); return; }
 
             let vApp = parseFloat(document.getElementById('form-v-app').value) || 0;
             let vCash = parseFloat(document.getElementById('form-v-cash').value) || 0;
@@ -353,7 +347,6 @@
 
             localStorage.setItem('date_pfa_achim_v2', JSON.stringify(bazaDate));
 
-            // Resetare promptă câmpuri formular
             document.getElementById('form-v-app').value = '';
             document.getElementById('form-v-cash').value = '';
             document.getElementById('form-comision').value = '';
@@ -393,15 +386,17 @@
                 t_vApp += item.vApp;
                 t_vCash += item.vCash;
                 t_comision += item.comision;
-                t_comb += item.combustibil;
-                t_chirie += item.chirie;
-                t_contabil += item.contabil;
+                t_comb += item.combustibil || 0;
+                t_chirie += item.chirie || 0;
+                t_contabil += item.contabil || 0;
                 
                 t_minute_totale += ((item.ore || 0) * 60) + (item.minute || 0);
 
                 let parts = item.data.split('-');
                 let dForm = parts[2] + "." + parts[1];
                 let brutZilnic = item.vApp + item.vCash;
+                let cheltuieliZilnice = item.comision + (item.combustibil || 0) + (item.chirie || 0) + (item.contabil || 0);
+                let netZilnic = brutZilnic - cheltuieliZilnice;
                 let oreItem = item.ore || 0;
                 let minuteItem = item.minute || 0;
 
@@ -410,11 +405,11 @@
                         <div class="flex items-center gap-2">
                             <div>
                                 <span class="font-semibold text-white font-mono text-xs">${dForm}</span>
-                                <span class="text-[10px] text-[#9CA3AF] block">Brut: ${brutZilnic.toFixed(2)} lei │ Timp: ${oreItem}h ${minuteItem}m</span>
+                                <span class="text-[10px] text-[#9CA3AF] block">Venituri: ${brutZilnic.toFixed(2)} lei │ Timp: ${oreItem}h ${minuteItem}m</span>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <span class="font-mono text-[#10B981] font-semibold">+${item.vApp.toFixed(2)} <span class="text-[9px] text-[#6B7280]">App</span></span>
+                            <span class="font-mono ${netZilnic >= 0 ? 'text-[#10B981]' : 'text-[#EF4444]'} font-semibold">${netZilnic >= 0 ? '+' : ''}${netZilnic.toFixed(2)} lei</span>
                             <button onclick="stergeInregistrare(${item.id})" class="text-[#4B5563] hover:text-[#EF4444] p-1 transition-colors cursor-pointer">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                             </button>
@@ -428,18 +423,15 @@
             document.getElementById('calc-timp-saptamana').innerText = `${oreAfisaj}h ${minuteAfisaj}m`;
 
             let venitBrut = t_vApp + t_vCash;
-            let dupaComision = venitBrut - t_comision;
             let decontabile = t_comb + t_chirie + t_contabil;
-            let sumaBazaTaxe = dupaComision - decontabile;
-            
-            let taxe = sumaBazaTaxe > 0 ? sumaBazaTaxe * 0.10 : 0;
-            let buzunar = dupaComision - decontabile - taxe;
+            let cheltuieliTotale = t_comision + decontabile;
+            let buzunar = venitBrut - cheltuieliTotale;
 
             document.getElementById('calc-buzunar').innerHTML = `${buzunar.toFixed(2)} <span class="text-xs font-normal text-[#9CA3AF]">RON</span>`;
             document.getElementById('calc-venit').innerText = venitBrut.toFixed(2) + " lei";
             document.getElementById('calc-comision').innerText = "-" + t_comision.toFixed(2) + " lei";
             document.getElementById('calc-decontabile').innerText = "-" + decontabile.toFixed(2) + " lei";
-            document.getElementById('calc-taxe').innerText = taxe.toFixed(2) + " lei";
+            document.getElementById('calc-taxe').innerText = cheltuieliTotale.toFixed(2) + " lei";
 
             let procentTarget = Math.min((buzunar / TARGET_SAPTAMANAL) * 100, 100);
             if(buzunar < 0) procentTarget = 0;
@@ -458,7 +450,7 @@
             corpTabel.innerHTML = '';
 
             if (bazaDate.length === 0) {
-                corpTabel.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-[#6B7280] italic text-xs">Lipsă date contabile consolidate.</td></tr>`;
+                corpTabel.innerHTML = `<tr><td colspan="5" class="text-center py-4 text-[#6B7280] italic text-xs">Lipsă date consolidate.</td></tr>`;
                 return;
             }
 
@@ -477,9 +469,9 @@
                 luniGrupate[cheieLuna].vApp += item.vApp;
                 luniGrupate[cheieLuna].vCash += item.vCash;
                 luniGrupate[cheieLuna].comision += item.comision;
-                luniGrupate[cheieLuna].comb += item.combustibil;
-                luniGrupate[cheieLuna].chirie += item.chirie;
-                luniGrupate[cheieLuna].contabil += item.contabil;
+                luniGrupate[cheieLuna].comb += item.combustibil || 0;
+                luniGrupate[cheieLuna].chirie += item.chirie || 0;
+                luniGrupate[cheieLuna].contabil += item.contabil || 0;
                 luniGrupate[cheieLuna].minuteTotale += ((item.ore || 0) * 60) + (item.minute || 0);
             });
 
@@ -488,12 +480,7 @@
                 
                 let vBrut = dateLuna.vApp + dateLuna.vCash;
                 let toateCheltuielile = dateLuna.comision + dateLuna.comb + dateLuna.chirie + dateLuna.contabil;
-                let decontabile = dateLuna.comb + dateLuna.chirie + dateLuna.contabil;
-                
-                let bazaTaxe = (vBrut - dateLuna.comision) - decontabile;
-                let taxe10 = bazaTaxe > 0 ? bazaTaxe * 0.10 : 0;
-                
-                let baniCurati = vBrut - toateCheltuielile - taxe10;
+                let baniCurati = vBrut - toateCheltuielile;
 
                 let oreLunate = Math.floor(dateLuna.minuteTotale / 60);
                 let minuteLunate = dateLuna.minuteTotale % 60;
@@ -506,7 +493,6 @@
                     <td class="text-center py-3 text-[#60A5FA] font-medium text-xs">${stringTimpLunar}</td>
                     <td class="text-right py-3">${vBrut.toFixed(2)}</td>
                     <td class="text-right py-3 text-[#9CA3AF]">${toateCheltuielile.toFixed(2)}</td>
-                    <td class="text-right py-3 text-[#F59E0B]">${taxe10.toFixed(2)}</td>
                     <td class="text-right py-3 font-semibold text-[#10B981] text-xs">${baniCurati.toFixed(2)}</td>
                 `;
                 corpTabel.appendChild(rand);
@@ -514,7 +500,7 @@
         }
 
         function stergeInregistrare(id) {
-            if(confirm("Confirmați eliminarea permanentă a înregistrării?")) {
+            if(confirm("Confirmați eliminarea înregistrării?")) {
                 let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
                 bazaDate = bazaDate.filter(item => item.id !== id);
                 localStorage.setItem('date_pfa_achim_v2', JSON.stringify(bazaDate));
@@ -523,7 +509,7 @@
         }
 
         function stergeTotIstoricul() {
-            if (confirm("⚠️ OPERAȚIUNE CRITICĂ: Sigur doriți ștergerea definitivă a registrului fiscal local?")) {
+            if (confirm("Sigur doriți ștergerea definitivă a registrului local?")) {
                 localStorage.removeItem('date_pfa_achim_v2');
                 ruleazaCalculeSaptamana();
                 genereazaIstoricLunar();
