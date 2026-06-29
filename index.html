@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registru Fiscal PFA - Management Activitate</title>
+    <!-- Tailwind CSS v4 pentru structură fluidă și performantă -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +23,10 @@
 </head>
 <body class="text-[#D1D5DB] antialiased">
 
+    <!-- CONTAINER CENTRAL -->
     <div class="max-w-md mx-auto min-h-screen bg-[#0A0E1A] flex flex-col relative border-x border-[#1E293B]">
         
+        <!-- HEADER CORPORATIV -->
         <header class="bg-[#111827] px-4 py-4 sticky top-0 z-50 flex items-center justify-between border-b border-[#1E293B]">
             <div>
                 <h1 class="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-wider">Registru Activitate PFA</h1>
@@ -36,6 +39,7 @@
             </div>
         </header>
 
+        <!-- NAVIGARE TAB-URI -->
         <div class="bg-[#111827] border-b border-[#1E293B] flex">
             <button onclick="schimbaPagina('saptamana')" id="btn-saptamana" class="w-1/2 py-3 text-center text-xs font-medium text-[#9CA3AF] border-b-2 border-transparent transition-all cursor-pointer active-tab flex items-center justify-center gap-2">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"></path></svg>
@@ -47,16 +51,20 @@
             </button>
         </div>
 
+        <!-- FILTRU CONȚINUT PRINCIPAL -->
         <main class="p-4 space-y-4 flex-1 pb-16">
 
+            <!-- ================= PAGINA 1: SĂPTĂMÂNĂ ================= -->
             <div id="pagina-saptamana" class="space-y-4">
                 
+                <!-- PANOU PRINCIPAL METRICI -->
                 <div class="bg-[#131B2E] p-5 border border-[#1E293B] rounded-md shadow-sm">
-                    <span class="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-wider block mb-1">Profit Net Real (Disponibil)</span>
+                    <span class="text-[10px] text-[#9CA3AF] font-semibold uppercase tracking-wider block mb-1">Câștig Net Real (După Taxe)</span>
                     <div id="calc-buzunar" class="text-3xl font-bold text-white font-mono tracking-tight flex items-baseline gap-1">
                         0.00 <span class="text-xs font-normal text-[#9CA3AF]">RON</span>
                     </div>
                     
+                    <!-- TARGET PROGRESS BAR -->
                     <div class="mt-4 space-y-1.5">
                         <div class="flex justify-between items-center text-[10px] font-medium text-[#9CA3AF]">
                             <span>Progres obiectiv săptămânal:</span>
@@ -67,38 +75,50 @@
                         </div>
                     </div>
 
+                    <!-- REZUMAT FINANCIAR EXTINS -->
                     <div class="grid grid-cols-2 gap-4 mt-5 pt-4 border-t border-[#1E293B] text-xs">
                         <div>
                             <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Total Venituri</span>
                             <span id="calc-venit" class="font-semibold text-white font-mono text-sm">0.00 lei</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Total Cheltuieli</span>
+                            <span class="text-[#9CA3AF] block text-[9px] uppercase tracking-wider mb-0.5">Costuri + Comision</span>
                             <span id="calc-taxe" class="font-semibold text-[#EF4444] font-mono text-sm">0.00 lei</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex items-center justify-between text-xs">
-                    <div class="flex items-center gap-2.5">
-                        <svg class="w-4 h-4 text-[#60A5FA]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-[#9CA3AF] font-medium">Timp total de lucru:</span>
+                <!-- METRICI OPERAȚIONALE ȘI SALARIU PE ORĂ -->
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex flex-col justify-center">
+                        <span class="text-[#9CA3AF] text-[10px] uppercase tracking-wider mb-1">Timp Lucrat</span>
+                        <span id="calc-timp-saptamana" class="font-semibold font-mono text-[#60A5FA] text-sm">0h 0m</span>
                     </div>
-                    <span id="calc-timp-saptamana" class="font-semibold font-mono text-[#60A5FA]">0h 0m</span>
+                    <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex flex-col justify-center">
+                        <span class="text-[#9CA3AF] text-[10px] uppercase tracking-wider mb-1">Câștig Net / Oră</span>
+                        <span id="calc-net-ora" class="font-semibold font-mono text-[#10B981] text-sm">0.00 lei/h</span>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3 text-xs">
-                    <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex justify-between items-center">
-                        <span class="text-[#9CA3AF]">Comision Bolt</span>
+                <!-- DEDUCTION METRICS CRISP GRID -->
+                <div class="grid grid-cols-3 gap-2 text-xs">
+                    <div class="bg-[#131B2E] p-2.5 border border-[#1E293B] rounded-md text-center">
+                        <span class="text-[#9CA3AF] block text-[9px] uppercase mb-1">Comision Bolt</span>
                         <span id="calc-comision" class="font-semibold font-mono text-[#EF4444]">-0.00 lei</span>
                     </div>
                     
-                    <div class="bg-[#131B2E] p-3.5 border border-[#1E293B] rounded-md flex justify-between items-center">
-                        <span class="text-[#9CA3AF]">Costuri Deductibile</span>
+                    <div class="bg-[#131B2E] p-2.5 border border-[#1E293B] rounded-md text-center">
+                        <span class="text-[#9CA3AF] block text-[9px] uppercase mb-1">Costuri Deduct.</span>
                         <span id="calc-decontabile" class="font-semibold font-mono text-[#9CA3AF]">-0.00 lei</span>
+                    </div>
+
+                    <div class="bg-[#131B2E] p-2.5 border border-[#1E293B] rounded-md text-center">
+                        <span class="text-[#9CA3AF] block text-[9px] uppercase mb-1">Impozit 10%</span>
+                        <span id="calc-impozit" class="font-semibold font-mono text-[#F59E0B]">-0.00 lei</span>
                     </div>
                 </div>
 
+                <!-- FORMULAR INTRODUCERE DATE -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4 space-y-4">
                     <h3 class="text-xs font-bold text-white uppercase tracking-wider border-b border-[#1E293B] pb-2">Introducere Date zi/cursă</h3>
                     
@@ -149,16 +169,17 @@
                     </button>
                 </div>
 
+                <!-- JURNAL SAPTAMANAL -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4 space-y-2">
                     <div class="flex justify-between items-center border-b border-[#1E293B] pb-2 mb-2">
                         <h3 class="font-bold text-[#9CA3AF] text-[10px] uppercase tracking-wider">Înregistrări Săptămâna Curentă</h3>
                         <span class="text-[10px] text-[#6B7280]">Luni - Duminică</span>
                     </div>
-                    <div id="lista-intrari-saptamana" class="divide-y divide-[#1E293B]/60 text-xs">
-                        </div>
+                    <div id="lista-intrari-saptamana" class="divide-y divide-[#1E293B]/60 text-xs"></div>
                 </div>
             </div>
 
+            <!-- ================= PAGINA 2: REGISTRU CONSOLIDAT LUNAR ================= -->
             <div id="pagina-lunar" class="hidden space-y-4">
                 
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4">
@@ -173,29 +194,23 @@
                                     <th class="pb-2">Luna / An</th>
                                     <th class="pb-2 text-center text-[#60A5FA]">Timp Total</th>
                                     <th class="pb-2 text-right">Venituri</th>
-                                    <th class="pb-2 text-right">Cheltuieli</th>
-                                    <th class="pb-2 text-right text-[#10B981]">Profit Net</th>
+                                    <th class="pb-2 text-right text-[#EF4444]">Cost+Impozit</th>
+                                    <th class="pb-2 text-right text-[#10B981]">Net Curat</th>
                                 </tr>
                             </thead>
-                            <tbody id="corp-tabel-lunar" class="divide-y divide-[#1E293B]/40 text-[#D1D5DB] font-mono">
-                                </tbody>
+                            <tbody id="corp-tabel-lunar" class="divide-y divide-[#1E293B]/40 text-[#D1D5DB] font-mono"></tbody>
                         </table>
                     </div>
                 </div>
 
+                <!-- EXPORT / IMPORT -->
                 <div class="bg-[#131B2E] border border-[#1E293B] rounded-md p-4 space-y-3">
-                    <div>
-                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Export / Import Date</h3>
-                    </div>
-                    
+                    <div><h3 class="text-xs font-bold text-white uppercase tracking-wider">Export / Import Date</h3></div>
                     <div class="grid grid-cols-2 gap-3">
                         <button onclick="exportaDate()" class="bg-[#0A0E1A] hover:bg-[#111827] text-white font-medium py-2 px-3 text-xs flex items-center justify-center gap-2 border border-[#1E293B] transition-colors cursor-pointer rounded-sm">
-                            <svg class="w-3.5 h-3.5 text-[#60A5FA]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                             Exportă Backup JSON
                         </button>
-                        
                         <label class="bg-[#0A0E1A] hover:bg-[#111827] text-white font-medium py-2 px-3 text-xs flex items-center justify-center gap-2 border border-[#1E293B] transition-colors cursor-pointer rounded-sm text-center">
-                            <svg class="w-3.5 h-3.5 text-[#34D399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                             Importă Fișier
                             <input type="file" id="input-import-file" accept=".json" onchange="importaDate(event)" class="hidden">
                         </label>
@@ -207,12 +222,11 @@
                         Șterge baza de date locală (Reset Complet)
                     </button>
                 </div>
-
             </div>
-
         </main>
     </div>
 
+    <!-- LOGICA FINANCIARĂ REZOLVATĂ -->
     <script>
         document.getElementById('form-data').valueAsDate = new Date();
         const TARGET_SAPTAMANAL = 1000;
@@ -237,47 +251,16 @@
         }
 
         function exportaDate() {
-            let dateBaza = localStorage.getItem('date_pfa_achim_v2') || '[]';
-            if(dateBaza === '[]') {
-                alert("Nu există înregistrări pentru export.");
-                return;
-            }
+            let dateBaza = localStorage.getItem('date_pfa_achim_v3') || localStorage.getItem('date_pfa_achim_v2') || '[]';
             let blob = new Blob([dateBaza], { type: 'application/json' });
             let urlUrl = URL.createObjectURL(blob);
-            let dataAzi = new Date().toISOString().split('T')[0];
             let downloadLink = document.createElement('a');
             downloadLink.href = urlUrl;
-            downloadLink.download = `jurnal_pfa_lucru_${dataAzi}.json`;
+            downloadLink.download = `jurnal_pfa_lucru_${new Date().toISOString().split('T')[0]}.json`;
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
-            URL.revokeObjectURL(urlUrl);
         }
-
-        function practicaMigrareDacaExista() {
-            // Migrează datele vechi dacă utilizatorul avea salvat în pfa_entries formatul simplu
-            let dateVechi = localStorage.getItem('pfa_entries');
-            let dateNoi = localStorage.getItem('date_pfa_achim_v2');
-            if(dateVechi && !dateNoi) {
-                try {
-                    let parsedVechi = JSON.parse(dateVechi);
-                    let formatNou = parsedVechi.map(e => ({
-                        id: e.id,
-                        data: e.data,
-                        vApp: e.venitApp || 0,
-                        vCash: e.venitCash || 0,
-                        comision: e.comisionBolt || 0,
-                        combustibil: e.tipCost === 'combustibil' ? e.valoareCost : 0,
-                        chirie: e.tipCost === 'chirie' ? e.valoareCost : 0,
-                        contabil: e.tipCost === 'contabilitate' ? e.valoareCost : 0,
-                        ore: 0,
-                        minute: 0
-                    }));
-                    localStorage.setItem('date_pfa_achim_v2', JSON.stringify(formatNou));
-                } catch(err){}
-            }
-        }
-        practicaMigrareDacaExista();
 
         function importaDate(event) {
             let fisier = event.target.files[0];
@@ -287,19 +270,11 @@
                 try {
                     let dateJson = JSON.parse(e.target.result);
                     if (Array.isArray(dateJson)) {
-                        if (confirm("Confirmați rescrierea bazei de date?")) {
-                            localStorage.setItem('date_pfa_achim_v2', JSON.stringify(dateJson));
-                            document.getElementById('input-import-file').value = '';
-                            ruleazaCalculeSaptamana();
-                            genereazaIstoricLunar();
-                            alert("Import realizat.");
-                        }
-                    } else {
-                        alert("Format JSON incompatibil.");
+                        localStorage.setItem('date_pfa_achim_v3', JSON.stringify(dateJson));
+                        ruleazaCalculeSaptamana();
+                        alert("Import realizat cu succes.");
                     }
-                } catch (eroare) {
-                    alert("Eroare la parsare.");
-                }
+                } catch (er) { alert("Fișier invalid."); }
             };
             cititor.readAsText(fisier);
         }
@@ -308,17 +283,14 @@
             let azi = new Date();
             let ziSaptamana = azi.getDay();
             let diferentaLuni = azi.getDate() - ziSaptamana + (ziSaptamana === 0 ? -6 : 1);
-            let luni = new Date(azi.setDate(diferentaLuni));
-            luni.setHours(0,0,0,0);
-            let duminica = new Date(luni);
-            duminica.setDate(luni.getDate() + 6);
-            duminica.setHours(23,59,59,999);
+            let luni = new Date(azi.setDate(diferentaLuni)); luni.setHours(0,0,0,0);
+            let duminica = new Date(luni); duminica.setDate(luni.getDate() + 6); duminica.setHours(23,59,59,999);
             return { inceput: luni, sfarsit: duminica };
         }
 
         function salveazaDate() {
             let dataIntrodusa = document.getElementById('form-data').value;
-            if(!dataIntrodusa) { alert("Selectați o dată."); return; }
+            if(!dataIntrodusa) return;
 
             let vApp = parseFloat(document.getElementById('form-v-app').value) || 0;
             let vCash = parseFloat(document.getElementById('form-v-cash').value) || 0;
@@ -326,90 +298,67 @@
             let comb = parseFloat(document.getElementById('form-combustibil').value) || 0;
             let chirie = parseFloat(document.getElementById('form-chirie').value) || 0;
             let contabil = parseFloat(document.getElementById('form-contabil').value) || 0;
-            
             let ore = parseInt(document.getElementById('form-ore').value) || 0;
             let minute = parseInt(document.getElementById('form-minute').value) || 0;
 
-            let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
+            let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v3')) || JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
             
             bazaDate.push({
-                id: Date.now(),
-                data: dataIntrodusa,
-                vApp: vApp,
-                vCash: vCash,
-                comision: comision,
-                combustibil: comb,
-                chirie: chirie,
-                contabil: contabil,
-                ore: ore,
-                minute: minute
+                id: Date.now(), data: dataIntrodusa, vApp, vCash, comision,
+                combustibil: comb, chirie, contabil, ore, minute
             });
 
-            localStorage.setItem('date_pfa_achim_v2', JSON.stringify(bazaDate));
+            localStorage.setItem('date_pfa_achim_v3', JSON.stringify(bazaDate));
 
-            document.getElementById('form-v-app').value = '';
-            document.getElementById('form-v-cash').value = '';
-            document.getElementById('form-comision').value = '';
-            document.getElementById('form-combustibil').value = '';
-            document.getElementById('form-chirie').value = '';
-            document.getElementById('form-contabil').value = '';
-            document.getElementById('form-ore').value = '';
-            document.getElementById('form-minute').value = '';
+            // Reset inputs
+            ['form-v-app','form-v-cash','form-comision','form-combustibil','form-chirie','form-contabil','form-ore','form-minute'].forEach(id => document.getElementById(id).value = '');
             document.getElementById('form-data').valueAsDate = new Date();
 
             ruleazaCalculeSaptamana();
         }
 
         function ruleazaCalculeSaptamana() {
-            let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
+            let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v3')) || JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
             let { inceput, sfarsit } = optineMarginileSaptamaniiCurente();
             
-            let t_vApp = 0, t_vCash = 0, t_comision = 0, t_comb = 0, t_chirie = 0, t_contabil = 0;
-            let t_minute_totale = 0;
-            
+            let t_vApp = 0, t_vCash = 0, t_comision = 0, t_comb = 0, t_chirie = 0, t_contabil = 0, t_minute_totale = 0;
             let containerLista = document.getElementById('lista-intrari-saptamana');
             containerLista.innerHTML = '';
 
             let intrariSaptamana = bazaDate.filter(item => {
-                let parts = item.data.split('-');
-                let dataItem = new Date(parts[0], parts[1] - 1, parts[2]);
-                return dataItem >= inceput && dataItem <= sfarsit;
+                let p = item.data.split('-');
+                let d = new Date(p[0], p[1] - 1, p[2]);
+                return d >= inceput && d <= sfarsit;
             });
 
             if(intrariSaptamana.length === 0) {
-                containerLista.innerHTML = '<p class="text-[#6B7280] italic py-3 text-center text-[11px]">Nicio activitate operată în intervalul curent.</p>';
+                containerLista.innerHTML = '<p class="text-[#6B7280] italic py-3 text-center text-[11px]">Nicio activitate în această săptămână.</p>';
             }
 
             intrariSaptamana.sort((a,b) => new Date(a.data) - new Date(b.data));
 
             intrariSaptamana.forEach(item => {
-                t_vApp += item.vApp;
-                t_vCash += item.vCash;
-                t_comision += item.comision;
-                t_comb += item.combustibil || 0;
-                t_chirie += item.chirie || 0;
-                t_contabil += item.contabil || 0;
-                
+                t_vApp += item.vApp; t_vCash += item.vCash; t_comision += item.comision;
+                t_comb += item.combustibil || 0; t_chirie += item.chirie || 0; t_contabil += item.contabil || 0;
                 t_minute_totale += ((item.ore || 0) * 60) + (item.minute || 0);
 
-                let parts = item.data.split('-');
-                let dForm = parts[2] + "." + parts[1];
+                let p = item.data.split('-');
                 let brutZilnic = item.vApp + item.vCash;
-                let cheltuieliZilnice = item.comision + (item.combustibil || 0) + (item.chirie || 0) + (item.contabil || 0);
-                let netZilnic = brutZilnic - cheltuieliZilnice;
-                let oreItem = item.ore || 0;
-                let minuteItem = item.minute || 0;
+                let costuriZilnice = item.comision + (item.combustibil||0) + (item.chirie||0) + (item.contabil||0);
+                
+                // Calcul Impozit 10% pe zi
+                let netInainteTaxeZi = Math.max(0, brutZilnic - costuriZilnice);
+                let impozitZi = netInainteTaxeZi * 0.10;
+                let netCuratZi = brutZilnic - costuriZilnice - impozitZi;
 
                 containerLista.innerHTML += `
                     <div class="flex justify-between items-center py-2.5 text-[#D1D5DB]">
-                        <div class="flex items-center gap-2">
-                            <div>
-                                <span class="font-semibold text-white font-mono text-xs">${dForm}</span>
-                                <span class="text-[10px] text-[#9CA3AF] block">Venituri: ${brutZilnic.toFixed(2)} lei │ Timp: ${oreItem}h ${minuteItem}m</span>
-                            </div>
+                        <div>
+                            <span class="font-semibold text-white font-mono text-xs">${p[2]}.${p[1]}</span>
+                            <span class="text-[10px] text-[#9CA3AF] block">Brut: ${brutZilnic.toFixed(2)} │ Imp: -${impozitZi.toFixed(2)} │ ${item.ore||0}h ${item.minute||0}m</span>
                         </div>
                         <div class="flex items-center gap-4">
-                            <span class="font-mono ${netZilnic >= 0 ? 'text-[#10B981]' : 'text-[#EF4444]'} font-semibold">${netZilnic >= 0 ? '+' : ''}${netZilnic.toFixed(2)} lei</span>
+                            <span class="font-mono ${netCuratZi >= 0 ? 'text-[#10B981]' : 'text-[#EF4444]'} font-semibold">${netCuratZi >= 0 ? '+' : ''}${netCuratZi.toFixed(2)} lei</span>
                             <button onclick="stergeInregistrare(${item.id})" class="text-[#4B5563] hover:text-[#EF4444] p-1 transition-colors cursor-pointer">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                             </button>
@@ -418,36 +367,43 @@
                 `;
             });
 
+            // Afisare Timp Total
             let oreAfisaj = Math.floor(t_minute_totale / 60);
             let minuteAfisaj = t_minute_totale % 60;
             document.getElementById('calc-timp-saptamana').innerText = `${oreAfisaj}h ${minuteAfisaj}m`;
 
+            // Calcule Globale Saptamana
             let venitBrut = t_vApp + t_vCash;
             let decontabile = t_comb + t_chirie + t_contabil;
-            let cheltuieliTotale = t_comision + decontabile;
-            let buzunar = venitBrut - cheltuieliTotale;
+            
+            let netInainteTaxe = Math.max(0, venitBrut - t_comision - decontabile);
+            let impozitTotal = netInainteTaxe * 0.10;
+            let netCuratBuzunar = venitBrut - t_comision - decontabile - impozitTotal;
 
-            document.getElementById('calc-buzunar').innerHTML = `${buzunar.toFixed(2)} <span class="text-xs font-normal text-[#9CA3AF]">RON</span>`;
+            // Calcul Net pe Oră
+            let netPeOra = 0;
+            if (t_minute_totale > 0) {
+                netPeOra = netCuratBuzunar / (t_minute_totale / 60);
+            }
+
+            // Actualizare interfață
+            document.getElementById('calc-buzunar').innerHTML = `${netCuratBuzunar.toFixed(2)} <span class="text-xs font-normal text-[#9CA3AF]">RON</span>`;
             document.getElementById('calc-venit').innerText = venitBrut.toFixed(2) + " lei";
             document.getElementById('calc-comision').innerText = "-" + t_comision.toFixed(2) + " lei";
             document.getElementById('calc-decontabile').innerText = "-" + decontabile.toFixed(2) + " lei";
-            document.getElementById('calc-taxe').innerText = cheltuieliTotale.toFixed(2) + " lei";
+            document.getElementById('calc-impozit').innerText = "-" + impozitTotal.toFixed(2) + " lei";
+            document.getElementById('calc-taxe').innerText = (t_comision + decontabile + impozitTotal).toFixed(2) + " lei";
+            document.getElementById('calc-net-ora').innerText = `${netPeOra.toFixed(2)} lei/h`;
 
-            let procentTarget = Math.min((buzunar / TARGET_SAPTAMANAL) * 100, 100);
-            if(buzunar < 0) procentTarget = 0;
-            
+            let procentTarget = Math.min((netCuratBuzunar / TARGET_SAPTAMANAL) * 100, 100);
+            if(netCuratBuzunar < 0) procentTarget = 0;
             document.getElementById('bara-progres-target').style.width = procentTarget + "%";
-            document.getElementById('text-progres-target').innerText = `${progresCuMinim(procentTarget)}% (${buzunar.toFixed(0)} / ${TARGET_SAPTAMANAL} lei)`;
-        }
-
-        function progresCuMinim(val) {
-            return val < 0 ? 0 : val.toFixed(0);
+            document.getElementById('text-progres-target').innerText = `${procentTarget.toFixed(0)}% (${netCuratBuzunar.toFixed(0)} / ${TARGET_SAPTAMANAL} lei)`;
         }
 
         function genereazaIstoricLunar() {
-            let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
-            let corpTabel = document.getElementById('corp-tabel-lunar');
-            corpTabel.innerHTML = '';
+            let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v3')) || JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
+            let corpTabel = document.getElementById('corp-tabel-lunar'); corpTabel.innerHTML = '';
 
             if (bazaDate.length === 0) {
                 corpTabel.innerHTML = `<tr><td colspan="5" class="text-center py-4 text-[#6B7280] italic text-xs">Lipsă date consolidate.</td></tr>`;
@@ -458,58 +414,56 @@
             const numeLuni = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
 
             bazaDate.forEach(item => {
-                let parts = item.data.split('-');
-                let d = new Date(parts[0], parts[1] - 1, parts[2]);
+                let p = item.data.split('-');
+                let d = new Date(p[0], p[1] - 1, p[2]);
                 let cheieLuna = numeLuni[d.getMonth()] + " " + d.getFullYear();
 
                 if (!luniGrupate[cheieLuna]) {
                     luniGrupate[cheieLuna] = { vApp: 0, vCash: 0, comision: 0, comb: 0, chirie: 0, contabil: 0, minuteTotale: 0 };
                 }
 
-                luniGrupate[cheieLuna].vApp += item.vApp;
-                luniGrupate[cheieLuna].vCash += item.vCash;
-                luniGrupate[cheieLuna].comision += item.comision;
-                luniGrupate[cheieLuna].comb += item.combustibil || 0;
-                luniGrupate[cheieLuna].chirie += item.chirie || 0;
-                luniGrupate[cheieLuna].contabil += item.contabil || 0;
+                luniGrupate[cheieLuna].vApp += item.vApp; luniGrupate[cheieLuna].vCash += item.vCash;
+                luniGrupate[cheieLuna].comision += item.comision; luniGrupate[cheieLuna].comb += item.combustibil || 0;
+                luniGrupate[cheieLuna].chirie += item.chirie || 0; luniGrupate[cheieLuna].contabil += item.contabil || 0;
                 luniGrupate[cheieLuna].minuteTotale += ((item.ore || 0) * 60) + (item.minute || 0);
             });
 
             for (let luna in luniGrupate) {
-                let dateLuna = luniGrupate[luna];
+                let dL = luniGrupate[luna];
+                let vBrut = dL.vApp + dL.vCash;
+                let costuriFixe = dL.comision + dL.comb + dL.chirie + dL.contabil;
                 
-                let vBrut = dateLuna.vApp + dateLuna.vCash;
-                let toateCheltuielile = dateLuna.comision + dateLuna.comb + dateLuna.chirie + dateLuna.contabil;
-                let baniCurati = vBrut - toateCheltuielile;
+                let netInainteTaxe = Math.max(0, vBrut - costuriFixe);
+                let imp = netInainteTaxe * 0.10;
+                let netCurat = vBrut - costuriFixe - imp;
 
-                let oreLunate = Math.floor(dateLuna.minuteTotale / 60);
-                let minuteLunate = dateLuna.minuteTotale % 60;
-                let stringTimpLunar = `${oreLunate}h ${minuteLunate}m`;
+                let oreL = Math.floor(dL.minuteTotale / 60);
+                let stringTimp = `${oreL}h ${dL.minuteTotale % 60}m`;
 
-                let rand = document.createElement('tr');
-                rand.className = "border-b border-[#1E293B]/60 hover:bg-[#111827] transition-colors";
-                rand.innerHTML = `
-                    <td class="py-3 font-medium text-white font-sans text-xs">${luna}</td>
-                    <td class="text-center py-3 text-[#60A5FA] font-medium text-xs">${stringTimpLunar}</td>
-                    <td class="text-right py-3">${vBrut.toFixed(2)}</td>
-                    <td class="text-right py-3 text-[#9CA3AF]">${toateCheltuielile.toFixed(2)}</td>
-                    <td class="text-right py-3 font-semibold text-[#10B981] text-xs">${baniCurati.toFixed(2)}</td>
+                corpTabel.innerHTML += `
+                    <tr class="border-b border-[#1E293B]/60 hover:bg-[#111827] transition-colors">
+                        <td class="py-3 font-medium text-white font-sans text-xs">${luna}</td>
+                        <td class="text-center py-3 text-[#60A5FA] text-xs">${stringTimp}</td>
+                        <td class="text-right py-3">${vBrut.toFixed(2)}</td>
+                        <td class="text-right py-3 text-[#9CA3AF]">${(costuriFixe + imp).toFixed(2)}</td>
+                        <td class="text-right py-3 font-semibold text-[#10B981] text-xs">${netCurat.toFixed(2)}</td>
+                    </tr>
                 `;
-                corpTabel.appendChild(rand);
             }
         }
 
         function stergeInregistrare(id) {
-            if(confirm("Confirmați eliminarea înregistrării?")) {
-                let bazaDate = JSON.parse(localStorage.getItem('date_pfa_achim_v2')) || [];
-                bazaDate = bazaDate.filter(item => item.id !== id);
-                localStorage.setItem('date_pfa_achim_v2', JSON.stringify(bazaDate));
+            if(confirm("Ștergeți linia selectată?")) {
+                let bd = JSON.parse(localStorage.getItem('date_pfa_achim_v3')) || [];
+                bd = bd.filter(i => i.id !== id);
+                localStorage.setItem('date_pfa_achim_v3', JSON.stringify(bd));
                 ruleazaCalculeSaptamana();
             }
         }
 
         function stergeTotIstoricul() {
-            if (confirm("Sigur doriți ștergerea definitivă a registrului local?")) {
+            if (confirm("Reset complet? Pierdeți datele nesalvate.")) {
+                localStorage.removeItem('date_pfa_achim_v3');
                 localStorage.removeItem('date_pfa_achim_v2');
                 ruleazaCalculeSaptamana();
                 genereazaIstoricLunar();
